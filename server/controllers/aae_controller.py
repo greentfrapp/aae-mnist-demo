@@ -1,9 +1,9 @@
 import connexion
-from swagger_server.models.datasets import Datasets
-from swagger_server.models.dataset import Dataset
-from swagger_server.models.latent_points import LatentPoints
-from swagger_server.models.pca_points import PcaPoints
-from swagger_server.models.pca_point import PcaPoint
+from server.models.datasets import Datasets
+from server.models.dataset import Dataset
+from server.models.latent_points import LatentPoints
+from server.models.pca_points import PcaPoints
+from server.models.pca_point import PcaPoint
 from datetime import date, datetime
 from typing import List, Dict
 from six import iteritems
@@ -16,7 +16,7 @@ import numpy as np
 import datetime
 from sklearn.decomposition import PCA
 
-from swagger_server.controllers.adversarialautoencoder import AdversarialAutoencoder
+from server.controllers.adversarialautoencoder import AdversarialAutoencoder
 
 
 def pca2latent(pca_points):

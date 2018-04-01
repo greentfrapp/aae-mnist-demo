@@ -29,7 +29,7 @@ paths:
           description: "successful operation"
           schema:
             type: "boolean"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
   /get_models:
     get:
       tags:
@@ -47,7 +47,7 @@ paths:
             type: "array"
             items:
               type: "string"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
   /load_model:
     get:
       tags:
@@ -69,7 +69,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/datasets"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
   /plot_mnist_data:
     get:
       tags:
@@ -92,7 +92,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/datasets"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
   /pca2data:
     post:
       tags:
@@ -115,7 +115,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/datasets"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
   /latent2data:
     post:
       tags:
@@ -138,7 +138,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/datasets"
-      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+      x-swagger-router-controller: "server.controllers.aae_controller"
 definitions:
   pca_point:
     type: "object"

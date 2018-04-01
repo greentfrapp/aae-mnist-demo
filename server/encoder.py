@@ -1,5 +1,5 @@
 from six import iteritems
-from swagger_server.models.base_model_ import Model
+from server.models.base_model_ import Model
 from connexion.apps.flask_app import FlaskJSONEncoder
 
 class JSONEncoder(FlaskJSONEncoder):

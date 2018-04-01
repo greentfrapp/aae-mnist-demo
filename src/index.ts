@@ -185,7 +185,7 @@ setTimeout(function(){
     load: function () {
       this.loading = true;
       var newDatasets = [];
-      myApi.get('load_model?model=./swagger_server/assets/models/saved_models/').then(response =>  {
+      myApi.get('load_model?model=./server/assets/models/saved_models/').then(response =>  {
         for (var i = 0; i < 10; i++) {
           var label = response.data[i].label;
           var data = response.data[i].pca_points.points;

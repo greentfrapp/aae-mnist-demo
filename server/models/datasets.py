@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from swagger_server.models.dataset import Dataset
+from server.models.dataset import Dataset
 from .base_model_ import Model
 from datetime import date, datetime
 from typing import List, Dict

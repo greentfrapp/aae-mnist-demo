@@ -1,9 +1,9 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from swagger_server.models.img_points import ImgPoints
-from swagger_server.models.latent_points import LatentPoints
-from swagger_server.models.pca_points import PcaPoints
+from server.models.img_points import ImgPoints
+from server.models.latent_points import LatentPoints
+from server.models.pca_points import PcaPoints
 from .base_model_ import Model
 from datetime import date, datetime
 from typing import List, Dict
