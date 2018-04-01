@@ -20,11 +20,11 @@ and wait for the following to appear
 
 Finally, open `index.html` in your browser and then click on the red power button.
 
-<img src="https://raw.githubusercontent.com/greentfrapp/aae-mnist-demo/master/images/start.png" alt="Start screen" width="500px" height="whatever">
+<img src="https://raw.githubusercontent.com/greentfrapp/aae-mnist-demo/master/images/start.png" alt="Start screen" width="800px" height="whatever">
 
 *Click on the bright red power button!*
 
-<img src="https://raw.githubusercontent.com/greentfrapp/aae-mnist-demo/master/images/loaded.png" alt="Start screen" width="500px" height="whatever">
+<img src="https://raw.githubusercontent.com/greentfrapp/aae-mnist-demo/master/images/loaded.png" alt="Start screen" width="800px" height="whatever">
 
 *After loading the pretrained model, the graph should automatically load the MNIST images. This might take some time depending on your hardware.*
 
