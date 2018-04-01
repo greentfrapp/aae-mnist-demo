@@ -1,0 +1,183 @@
+---
+swagger: "2.0"
+info:
+  description: "API for Adversarial Autoencoders demonstration"
+  version: "0.1"
+  title: "AAE Demo"
+  contact:
+    email: "limsweekiat@gmail.com"
+host: "localhost:8080"
+basePath: "/v0.1"
+tags:
+- name: "aae"
+  description: "Endpoints for AAE Demo"
+schemes:
+- "http"
+paths:
+  /is_model_loaded:
+    get:
+      tags:
+      - "aae"
+      summary: "Checks if model is loaded"
+      description: "Returns a boolean for if model is loaded"
+      operationId: "is_model_loaded"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "boolean"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+  /get_models:
+    get:
+      tags:
+      - "aae"
+      summary: "Retrieve list of models"
+      description: "Retrieves a list of models from the Results directory"
+      operationId: "get_models"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "string"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+  /load_model:
+    get:
+      tags:
+      - "aae"
+      summary: "Load a model"
+      description: "Load a model from list of models provided by get_models"
+      operationId: "load_model"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "model"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/datasets"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+  /plot_mnist_data:
+    get:
+      tags:
+      - "aae"
+      summary: "Plot points from the MNIST set"
+      description: "Encodes images from the MNIST set and transform the encodings\
+        \ via PCA"
+      operationId: "plot_mnist"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "n_data"
+        in: "query"
+        required: false
+        type: "number"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/datasets"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+  /pca2data:
+    post:
+      tags:
+      - "aae"
+      summary: "Converts PCA dimension to latent dimension and images"
+      description: "Converts points in the PCA dimension to higher-order latent dimension"
+      operationId: "pca2data"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "points"
+        required: false
+        schema:
+          $ref: "#/definitions/pca_points"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/datasets"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+  /latent2data:
+    post:
+      tags:
+      - "aae"
+      summary: "Converts latent dimension to PCA dimension and images"
+      description: "Converts points in the latent dimension to PCA dimension for visualization"
+      operationId: "latent2data"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "points"
+        required: false
+        schema:
+          $ref: "#/definitions/latent_points"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/datasets"
+      x-swagger-router-controller: "swagger_server.controllers.aae_controller"
+definitions:
+  pca_point:
+    type: "object"
+    properties:
+      x:
+        type: "number"
+      y:
+        type: "number"
+  pca_points:
+    type: "object"
+    properties:
+      points:
+        type: "array"
+        items:
+          $ref: "#/definitions/pca_point"
+  latent_points:
+    type: "array"
+    items:
+      type: "array"
+      items:
+        type: "number"
+  img_points:
+    type: "array"
+    items:
+      type: "array"
+      items:
+        type: "number"
+  dataset:
+    type: "object"
+    properties:
+      label:
+        type: "string"
+      pca_points:
+        $ref: "#/definitions/pca_points"
+      latent_points:
+        $ref: "#/definitions/latent_points"
+      img_points:
+        $ref: "#/definitions/img_points"
+  datasets:
+    type: "array"
+    items:
+      $ref: "#/definitions/dataset"

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "outDir": "./built/",
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es5",
+        "strictNullChecks": false
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
